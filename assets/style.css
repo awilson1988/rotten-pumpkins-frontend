@@ -2,7 +2,12 @@
     --bg-color: #ffa500;
     --main-color: black;
     --main-color-transparent: rgba(255, 166, 0, 0.459);
-    --header-font-family: 'Creepster', cursive;
+    --header-font-family: 'Butcherman', cursive;
+  }
+
+  h1 {
+    font-family: 'Butcherman', cursive;
+    font-size: 4em;
   }
   
   body {
@@ -18,8 +23,8 @@
   }
   
   .movie-card {
-    border: 3px solid var(--main-color);
-    border-radius: 1em;
+    border: 7px solid var(--main-color);
+    border-radius: 5em;
   }
   
   .movie-card img {

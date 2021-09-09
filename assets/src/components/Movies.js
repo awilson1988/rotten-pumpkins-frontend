@@ -11,7 +11,7 @@ class Movie {
         const { title, overview, director, releaseDate, imageUrl, id } = this.data
         document.querySelector(".movie-container").innerHTML += `
             <div class="movie-card">
-            <img scr=${imageUrl} alt=${title}/>
+            <img scr=${imageUrl}/>
             <p class="title">${title}</p>
             <p>${overview}</p>
             </div>`
@@ -28,6 +28,7 @@ class Movie {
     static getMovies(){
         api.getMovies().then(movies => {
             movies.forEach(movie => new Movie(movie))
+            this.renderIndex()
         })
     }
 }
