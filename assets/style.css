@@ -11,25 +11,25 @@
     text-align: center;
   }
   
-  #house-container {
+  #movie-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
   
-  .house-card {
+  .movie-card {
     border: 3px solid var(--main-color);
     border-radius: 1em;
   }
   
-  .house-card img {
+  .movie-card img {
     width: 350px;
     height: 250px;
     object-fit: cover;
     cursor: pointer;
   }
   
-  .house-card .title {
+  .movie-card .title {
     font-size: 1.25em;
     font-family: var(--header-font-family);
     color: red;
