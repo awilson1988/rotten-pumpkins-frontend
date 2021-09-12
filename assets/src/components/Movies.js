@@ -4,7 +4,6 @@ class Movie {
     constructor(data){
         this.data = data
         this.constructor.all.push(this)
-        console.log(this)
     }
 
     renderCard = () => {
@@ -19,6 +18,21 @@ class Movie {
             </div>`
     }
 
+    static handleSubmit = (e) => {
+        e.preventDefault()
+        const newMovie = {
+            title: e.target.title.value, 
+            director: e.target.director.value,
+            release_date: e.target.releaseDate.value, 
+            overview: e.target.overview.value,
+            image_url: e.target.imageUrl.value
+        }
+        api.createMovie(newMovie).then(movie => {
+            new Movie(movie).renderCard()
+        })
+        modal.close()
+        e.target.reset()
+    }
     renderShow = () => {
         const { title, overview, director, releaseDate, imageUrl } = this.data
         document.getElementById("main").innerHTML = `
@@ -32,6 +46,28 @@ class Movie {
         <button id="Back">Back</button>
         `
         document.getElementById("Back").addEventListener("click", Movie.renderIndex)
+    }
+
+    static openMovieForm = () => {
+        modal.main.innerHTML = `
+        <h1>Did we miss any Halloween Classic's?</h1> 
+        <h2>Add it to our collection!</h2>
+        <form> 
+          <label for="title">Title:</label><br>
+          <input type="text" name="title"><br>
+          <label for="director">Director:</label><br>
+          <input type="text" name="director"><br>
+          <label for="releaseDate">Release Date:</label><br>
+          <input type="text" name="releaseDate"><br> 
+          <label for="overview">Overview:</label><br>
+          <input type="text" name="overview"><br> 
+          <label for="imageUrl">Image:</label><br>
+          <input type="text" name="imageUrl"><br>
+          <input type="submit" value="Add your Movie"><br>
+          </form>
+        `
+        modal.main.querySelector("form").addEventListener("submit", this.handleSubmit)
+        modal.open()
     }
 
     static find = (id) => this.all.find(movie => movie.data.id == id)
@@ -49,7 +85,10 @@ class Movie {
         movieContainer.id = "movie-container"
         const main = document.getElementById("main")
         main.innerHTML = ""
-        main.appendChild(movieContainer)
+        const addMovie = document.createElement("button")
+        addMovie.innerText = "Did we miss one? Add another Halloween Movie!"
+        addMovie.addEventListener("click", this.openMovieForm)
+        main.append(movieContainer, addMovie)
         this.all.forEach(movie => movie.renderCard())
         movieContainer.addEventListener("click", this.handleIndexClick)
     }
