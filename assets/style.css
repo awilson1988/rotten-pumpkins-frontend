@@ -33,6 +33,7 @@
   }
   
   .movie-card img {
+    padding-top: 10px;
     width: 350px;
     height: 250px;
     object-fit: scale-down;

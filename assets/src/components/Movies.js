@@ -42,6 +42,7 @@ class Movie {
             <p>Director: ${director}</p> 
             <p>Release Date:${releaseDate}</p> 
             <p>${overview}</p>
+
         </div>
         <button id="Back">Back</button>
         `
@@ -75,6 +76,7 @@ class Movie {
     
     static getMovies = () => {
         api.getMovies().then(movies => {
+            Movie.all = []
             movies.forEach(movie => new Movie(movie))
             this.renderIndex()
         })
