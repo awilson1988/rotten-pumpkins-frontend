@@ -3,6 +3,7 @@ class Movie {
     static all = []
     constructor(data){
         this.data = data
+        this.reviews = this.data.reviews.map(review => new Review(review))
         this.constructor.all.push(this)
     }
 
@@ -42,11 +43,13 @@ class Movie {
             <p>Director: ${director}</p> 
             <p>Release Date:${releaseDate}</p> 
             <p>${overview}</p>
+            <div class="container"></div>
 
         </div>
         <button id="Back">Back</button>
         `
         document.getElementById("Back").addEventListener("click", Movie.renderIndex)
+        this.reviews.forEach(review => review.render())
     }
 
     static openMovieForm = () => {
