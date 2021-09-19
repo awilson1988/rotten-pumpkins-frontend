@@ -36,6 +36,7 @@ class Movie {
     }
     renderShow = () => {
         const { title, overview, director, releaseDate, imageUrl } = this.data
+
         document.getElementById("main").innerHTML = `
         <div class="show">
             <h1>${title}</h1>
@@ -44,7 +45,7 @@ class Movie {
             <p>Release Date:${releaseDate}</p> 
             <p>${overview}</p>
             <div class="container"></div>
-
+            
         </div>
         <button id="Back">Back</button>
         `
