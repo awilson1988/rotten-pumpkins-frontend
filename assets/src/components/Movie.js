@@ -16,6 +16,7 @@ class Movie {
             <p>${director}</p> 
             <p>${releaseDate}</p>
             <p>${overview}</p>
+            <p class="likes" id="likes" data-id=${id}> ♡ </p>
             </div>`
     }
 
@@ -95,8 +96,11 @@ class Movie {
         addMovie.innerText = "Did we miss one? Add another Halloween Movie!"
         addMovie.addEventListener("click", this.openMovieForm)
         main.append(movieContainer, addMovie)
-        this.all.forEach(movie => movie.renderCard())
+        this.all.forEach((movie) => {
+            movie.renderCard(); 
+            Like.addLike();
         movieContainer.addEventListener("click", this.handleIndexClick)
+        })
     }
     
     static handleIndexClick = (e) => {
