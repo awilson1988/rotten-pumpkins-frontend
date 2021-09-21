@@ -3,7 +3,7 @@ class Movie {
     static all = []
     constructor(data){
         this.data = data
-        // this.reviews = this.data.reviews.map(review => new Review(review))
+        this.reviews = this.data.reviews.map(review => new Review(review))
         this.constructor.all.push(this)
     }
 
@@ -16,7 +16,6 @@ class Movie {
             <p>${director}</p> 
             <p>${releaseDate}</p>
             <p>${overview}</p>
-            <p class="likes" id="likes" data-id=${id}> ♡ </p>
             </div>`
     }
 
@@ -36,7 +35,7 @@ class Movie {
         e.target.reset()
     }
     renderShow = () => {
-        const { title, overview, director, releaseDate, imageUrl } = this.data
+        const { title, overview, director, releaseDate, imageUrl, username } = this.data
 
         document.getElementById("main").innerHTML = `
         <div class="show">
@@ -45,6 +44,7 @@ class Movie {
             <p>Director: ${director}</p> 
             <p>Release Date:${releaseDate}</p> 
             <p>${overview}</p>
+            <p>Added by: ${username}</p>
             <div class="container"></div>
             
         </div>
@@ -106,6 +106,7 @@ class Movie {
         if (e.target.tagName == "IMG" || e.target.classList.contains("title")){
             const id = e.target.closest(".movie-card").dataset.id
             this.find(id).renderShow()
-        }
+          
+        } 
     }
 }

@@ -7,6 +7,7 @@ class ApiService {
     getMovies = () => fetch(this.api + "/movies").then(res => res.json())
 
     createMovie = (newMovie) => {
+      newMovie.user_id = user.id
       return fetch(this.api + "/movies", {
         method: 'POST', // or 'PUT'
         headers: {
