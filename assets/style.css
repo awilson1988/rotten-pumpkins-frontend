@@ -1,7 +1,7 @@
 :root {
     --bg-color: #ffa500;
     --main-color: black;
-    --main-color-transparent: rgba(255, 166, 0, 0.459);
+    --main-color-transparent: red;
     --header-font-family: 'Nosifer';
   }
 

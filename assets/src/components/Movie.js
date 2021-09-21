@@ -3,7 +3,7 @@ class Movie {
     static all = []
     constructor(data){
         this.data = data
-        this.reviews = this.data.reviews.map(review => new Review(review))
+        // this.reviews = this.data.reviews.map(review => new Review(review))
         this.constructor.all.push(this)
     }
 
@@ -96,11 +96,10 @@ class Movie {
         addMovie.innerText = "Did we miss one? Add another Halloween Movie!"
         addMovie.addEventListener("click", this.openMovieForm)
         main.append(movieContainer, addMovie)
-        this.all.forEach((movie) => {
-            movie.renderCard(); 
-            Like.addLike();
+        this.all.forEach(movie => movie.renderCard()) 
+            // Like.addLike();
         movieContainer.addEventListener("click", this.handleIndexClick)
-        })
+        
     }
     
     static handleIndexClick = (e) => {
