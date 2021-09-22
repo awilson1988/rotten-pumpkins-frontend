@@ -1,27 +1,39 @@
 class Review {
-    // static all = []
-    constructor(data){
+    static all = []
+    constructor(data) {
         this.data = data
-        // this.constructor.all.push(this)
+        this.constructor.all.push(this)
     }
-
-    // static showForm() {
-    //     const reviewButton = document.querySelector("#review")
-    //     reviewButton.addEventListener("click", (e) => {
-    //         e.preventDefault()
-    //         this.reviewHtml()
-    //     })
-    // }
 
     render = () => {
-       const { text } = this.data
-       document.querySelector(".container").innerHTML += `
-       <div class="card"> 
-          <h1>Reviews for</h1>
-          <p>${text}</p>
-          </div>
-        `
-    }
+        const { text } = this.data
+        document.querySelector(".container").innerHTML += `
+        <div class="card"> 
+           <h1>Reviews for</h1>
+           <p>${text}</p>
+           </div>
+         `
+     }
+
+    static showForm = () => {
+        const reviewDiv = document.createElement("div")
+                reviewDiv.innerHTML = `
+                <form id="review-form"> 
+                    <label for="review">Review:</label><br>
+                    <input type="text" id="review" name="review"><br>
+                    <input type="submit" id="submit-review" value="Submit Review">
+                </form>`
+            const showPage = document.querySelector(".show");
+            showPage.append(reviewDiv);
+            console.log(this)
+          };
+
+        // const reviewButton = document.querySelector("#review")
+        // reviewButton.addEventListener("click", (e) => {
+        //   e.preventDefault()
+        //   this.reviewHtml()
+    //     })
+    //    }
 
 //     static reviewHtml = () => {
 //         const reviewDiv = document.createElement("div")

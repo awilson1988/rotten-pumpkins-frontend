@@ -1,6 +1,7 @@
 class Movie {
 
     static all = []
+    
     constructor(data){
         this.data = data
         this.reviews = this.data.reviews.map(review => new Review(review))
@@ -34,10 +35,10 @@ class Movie {
         modal.close()
         e.target.reset()
     }
-    renderShow = () => {
+     renderShow = () => {
         const { title, overview, director, releaseDate, imageUrl, username } = this.data
 
-        document.getElementById("main").innerHTML = `
+        main.innerHTML = `
         <div class="show">
             <h1>${title}</h1>
             <IMG SRC="${imageUrl}" alt=${title}/> 
@@ -46,12 +47,13 @@ class Movie {
             <p>${overview}</p>
             <p>Added by: ${username}</p>
             <div class="container"></div>
-            
+            <button id="Back">Back</button>
+            <button id="Review">Add Review</button> 
         </div>
-        <button id="Back">Back</button>
-        <button id="Review">Add Review</button>
         `
+        // Review.showForm()
         document.getElementById("Back").addEventListener("click", Movie.renderIndex)
+        document.getElementById("Review").addEventListener("click", Review.showForm)
         this.reviews.forEach(review => review.render())
     }
 
