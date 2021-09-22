@@ -49,6 +49,7 @@ class Movie {
             
         </div>
         <button id="Back">Back</button>
+        <button id="Review">Add Review</button>
         `
         document.getElementById("Back").addEventListener("click", Movie.renderIndex)
         this.reviews.forEach(review => review.render())
