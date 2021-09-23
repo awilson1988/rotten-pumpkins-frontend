@@ -4,7 +4,7 @@ class Movie {
     
     constructor(data){
         this.data = data
-        this.reviews = this.data.reviews.map(review => new Review(review))
+        this.reviews = this.data.reviews.map((review) => new Review(review))
         this.constructor.all.push(this)
     }
 
@@ -51,10 +51,15 @@ class Movie {
             <button id="Review">Add Review</button> 
         </div>
         `
-        // Review.showForm()
+    //    Review.showForm()
         document.getElementById("Back").addEventListener("click", Movie.renderIndex)
         document.getElementById("Review").addEventListener("click", Review.showForm)
-        this.reviews.forEach(review => review.render())
+        this.reviews.forEach((review) => review.render())
+        // const back = document.getElementById("back")
+        // back.addEventListener("click", (e) => {
+        //     e.preventDefault()
+        //     Movie.renderIndex()
+        
     }
 
     static openMovieForm = () => {

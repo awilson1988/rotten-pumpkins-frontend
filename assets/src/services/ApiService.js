@@ -1,6 +1,6 @@
 class ApiService {
 
-    constructor(api){
+    constructor(api) {
         this.api = api
     }
 
@@ -31,7 +31,6 @@ class ApiService {
 
     createReview = (newReview) => {
       let user_id = user.id
-      let movie_id = movie.id
       return fetch(this.api + "/reviews", {
         method: 'POST',
         headers: {
