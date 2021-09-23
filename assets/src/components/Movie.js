@@ -36,9 +36,9 @@ class Movie {
         e.target.reset()
     }
      renderShow = () => {
-        const { title, overview, director, releaseDate, imageUrl, username } = this.data
+        const { id, title, overview, director, releaseDate, imageUrl, username, reviews } = this.data
+        document.getElementById("main").innerHTML = `
 
-        main.innerHTML = `
         <div class="show">
             <h1>${title}</h1>
             <IMG SRC="${imageUrl}" alt=${title}/> 
@@ -47,19 +47,19 @@ class Movie {
             <p>${overview}</p>
             <p>Added by: ${username}</p>
             <div class="container"></div>
+            </div>
             <button id="Back">Back</button>
             <button id="Review">Add Review</button> 
-        </div>
-        `
-    //    Review.showForm()
-        document.getElementById("Back").addEventListener("click", Movie.renderIndex)
-        document.getElementById("Review").addEventListener("click", Review.showForm)
-        this.reviews.forEach((review) => review.render())
+            `
+            document.getElementById("Back").addEventListener("click", Movie.renderIndex)
+            document.getElementById("Review").addEventListener("click", Review.reviewHtml)
+            this.reviews.forEach((review) => review.render())
+        // Review.showForm()
         // const back = document.getElementById("back")
         // back.addEventListener("click", (e) => {
         //     e.preventDefault()
         //     Movie.renderIndex()
-        
+          
     }
 
     static openMovieForm = () => {

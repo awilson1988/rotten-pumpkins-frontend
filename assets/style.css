@@ -1,6 +1,6 @@
 :root {
     --bg-color: #ffa500;
-    --main-color: black;
+    --main-color: green;
     --main-color-transparent: red;
     --header-font-family: 'Nosifer';
   }
@@ -22,15 +22,18 @@
     padding-top: 10px;
     justify-content: space-around;
   }
-  
+
   .movie-card {
-    border: 7px solid var(--main-color);
+    border: 10px solid var(--main-color);
     border-radius: 7em;
     max-width: 350px;
     padding-top: 10px;
     padding-bottom:10px;
+    padding-left: 10px;
+    padding-right: 10px;
     font-family: Verdana, sans-serif;
     word-wrap: break-word;
+    overflow-wrap: break-word;
   }
   
   .movie-card img {
@@ -91,14 +94,14 @@
   }
 
   .topnav {
-    background-color: red;
+    background-color: #FC6A03;
     overflow: hidden;
   }
   
   /* Style the links inside the navigation bar */
   .topnav a {
     float: left;
-    color: #f2f2f2;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
