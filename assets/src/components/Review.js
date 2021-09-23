@@ -2,8 +2,11 @@ class Review {
     static all = []
     constructor(data) {
         this.data = data
+        // this.movie = movie
         this.constructor.all.push(this)
     }
+
+    //  static find = (id) => this.all.find(movie => movie.data.id == id)
 
     render = () => {
         const { text } = this.data
@@ -23,9 +26,10 @@ class Review {
                     <input type="text" id="review" name="review"><br>
                     <input type="submit" id="submit-review" value="Submit Review">
                 </form>`
-            const showPage = document.querySelector(".show");
-            showPage.append(reviewDiv);
+            const showPage = document.querySelector(".show")
+            showPage.append(reviewDiv)
             console.log(this)
+            // this.submitForm()
           };
 
         // const reviewButton = document.querySelector("#review")
@@ -48,19 +52,18 @@ class Review {
 //     this.submitForm();
 //   };
 
-//   static submitForm() {
-//       const id = document.querySelector("#show").dataset.id
+//   static submitForm = () => {
+//       const id = document.querySelector(".show").dataset.id
 //       const submitButton = document.querySelector("#submit-review")
 //       const reviewForm = document.querySelector("form")
 //       submitButton.addEventListener("click", (e) => {
 //           e.preventDefault() 
 //           const newReview = {
 //               text: reviewForm.review.value, 
-//               movie_id: id,
+//               movie_id: movie.id,
 //               user_id: user.id,
 //           }
-//           api 
-//           .createReview(newReview)
+//           api.createReview(newReview)
 //           .then((review) => this.handleReview(review))
 //       })
 //   }

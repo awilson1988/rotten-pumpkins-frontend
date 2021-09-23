@@ -28,4 +28,18 @@ class ApiService {
       })
       .then(response => response.json())
     }
+
+    createReview = (newReview) => {
+      let user_id = user.id
+      let movie_id = movie.id
+      return fetch(this.api + "/reviews", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newReview),
+      })
+      .then(response => response.json())
+    }
+    
 }
