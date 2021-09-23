@@ -71,6 +71,7 @@
     background-color: var(--main-color-transparent); /* Fallback color */
   }
   
+  
   /* Modal Content/Box */
   .modal-content {
     background-color: black;
