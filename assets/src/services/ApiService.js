@@ -29,16 +29,16 @@ class ApiService {
       .then(response => response.json())
     }
 
-    createReview = (newReview) => {
-      let user_id = user.id
-      return fetch(this.api + "/reviews", {
-        method: 'POST',
+    createFavorite = (newFavorite) => {
+      return fetch(this.api + currentUser.id + "/favorites", {
+        method: 'POST', // or 'PUT'
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(newReview),
+        body: JSON.stringify(newFavorite),
       })
       .then(response => response.json())
+      .then(favorites => putFavoritesOnDom(favorites))
     }
     
 }

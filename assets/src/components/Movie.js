@@ -4,7 +4,7 @@ class Movie {
     
     constructor(data){
         this.data = data
-        this.reviews = this.data.reviews.map((review) => new Review(review))
+        // this.reviews = this.data.reviews.map((review) => new Review(review))
         this.constructor.all.push(this)
     }
 
@@ -17,6 +17,7 @@ class Movie {
             <p>${director}</p> 
             <p>${releaseDate}</p>
             <p>${overview}</p>
+            <p class="favorites" id="favorites" data-id=${id}> ♡ </p>
             </div>`
     }
 
@@ -48,12 +49,11 @@ class Movie {
             <p>Added by: ${username}</p>
             <div class="container"></div>
             </div>
-            <button id="Back">Back</button>
-            <button id="Review">Add Review</button> 
+            <button id="Back">Back</button> 
             `
             document.getElementById("Back").addEventListener("click", Movie.renderIndex)
-            document.getElementById("Review").addEventListener("click", Review.reviewHtml)
-            this.reviews.forEach((review) => review.render())
+            // document.getElementById("Review").addEventListener("click", Review.reviewHtml)
+            // this.reviews.forEach((review) => review.render())
         // Review.showForm()
         // const back = document.getElementById("back")
         // back.addEventListener("click", (e) => {
@@ -105,7 +105,7 @@ class Movie {
         addMovie.addEventListener("click", this.openMovieForm)
         main.append(movieContainer, addMovie)
         this.all.forEach(movie => movie.renderCard()) 
-            // Like.addLike();
+        Favorite.addFavorite()
         movieContainer.addEventListener("click", this.handleIndexClick)
         
     }
