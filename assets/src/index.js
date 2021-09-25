@@ -1,5 +1,7 @@
 const api = new ApiService("http://localhost:3000")
 const modal = new Modal()
+const favCollection = document.querySelector('#fav-collection')
+const likeButton = document.querySelector('.like-btn')
 let user
 
 

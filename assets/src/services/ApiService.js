@@ -30,7 +30,7 @@ class ApiService {
     }
 
     createFavorite = (newFavorite) => {
-      return fetch(this.api + currentUser.id + "/favorites", {
+      return fetch(this.api + "/users", {
         method: 'POST', // or 'PUT'
         headers: {
           'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ class ApiService {
         body: JSON.stringify(newFavorite),
       })
       .then(response => response.json())
-      .then(favorites => putFavoritesOnDom(favorites))
+      // .then(favorites => putFavoritesOnDom(favorites))
     }
     
 }

@@ -100,12 +100,14 @@ class Movie {
         movieContainer.id = "movie-container"
         const main = document.getElementById("main")
         main.innerHTML = ""
+        const addFavorite = document.createElement("link") 
+        addFavorite.innerText = "See your Faves!"
+        addFavorite.addEventListener("click", this.addFavorite)
         const addMovie = document.createElement("button")
         addMovie.innerText = "Did we miss one? Add another Halloween Movie!"
         addMovie.addEventListener("click", this.openMovieForm)
-        main.append(movieContainer, addMovie)
+        main.append(movieContainer, addMovie, addFavorite)
         this.all.forEach(movie => movie.renderCard()) 
-        Favorite.addFavorite()
         movieContainer.addEventListener("click", this.handleIndexClick)
         
     }
