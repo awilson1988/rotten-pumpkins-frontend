@@ -15,4 +15,14 @@ function handleUsernameSubmit(e){
         user = userData 
         Movie.getMovies()
     })
+    
+    let user 
+
+    
+    handleLogOut = () => {
+        user = "" 
+        User.all = [] 
+        clear()
+       
+    }
 }

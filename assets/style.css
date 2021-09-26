@@ -34,8 +34,13 @@
     font-family: Verdana, sans-serif;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    
   }
-  
+
+  .favorites {
+    font-size: 60px;
+  }
+ 
   .movie-card img {
     padding-top: 10px;
     width: 350px;
@@ -89,9 +94,9 @@
   }
 
   .likes {
-      font-size: 90px;
+  
       text-align: center;
-      margin-right: 30px;
+      margin-right: 100px;
   }
 
   .topnav {
