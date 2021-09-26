@@ -4,7 +4,8 @@ class Movie {
     
     constructor(data){
         this.data = data
-        // this.reviews = this.data.reviews.map((review) => new Review(review))
+        this.id = data.id
+        this.favorites = this.data.favorites.map((favorite) => new Favorite(favorite))
         this.constructor.all.push(this)
     }
 
@@ -108,6 +109,7 @@ class Movie {
         addMovie.addEventListener("click", this.openMovieForm)
         main.append(movieContainer, addMovie, addFavorite)
         this.all.forEach(movie => movie.renderCard()) 
+        Favorite.addFavorite()
         movieContainer.addEventListener("click", this.handleIndexClick)
         
     }
